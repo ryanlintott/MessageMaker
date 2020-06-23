@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-
-
 struct MessageTail: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -88,7 +86,7 @@ struct TextBubbleView: View {
             .padding([.top, .bottom], 8)
             .foregroundColor(textColor)
             .background(backgroundColor)
-            .clipShape(RoundedRectangle(cornerRadius: 18))
+            .cornerRadius(18)
             .messageTail(hasTail: hasTail, location: messageAlignment, color: backgroundColor)
     }
 }
@@ -97,7 +95,18 @@ struct TextBubbleView_Previews: PreviewProvider {
     static let testMessage = "Here there here is a really long message that tests the size capacity available"
     
     static var previews: some View {
-        TextBubbleView(message: testMessage, messageAlignment: .trailing, textColor: .white, backgroundColor: .gray, hasTail: true)
+        Group {
+            TextBubbleView(message: "Hi", messageAlignment: .leading, textColor: .white, backgroundColor: .gray, hasTail: true)
+                .previewLayout(.sizeThatFits)
+                .padding()
+            
+            TextBubbleView(message: "Medium message", messageAlignment: .trailing, textColor: .white, backgroundColor: .blue, hasTail: false)
             .previewLayout(.sizeThatFits)
+            .padding()
+            
+            TextBubbleView(message: testMessage, messageAlignment: .trailing, textColor: .white, backgroundColor: .blue, hasTail: true)
+                .previewLayout(.sizeThatFits)
+                .padding()
+        }
     }
 }

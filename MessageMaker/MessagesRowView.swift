@@ -8,18 +8,9 @@
 
 import SwiftUI
 
-enum Sender {
-    case me(sms: Bool)
-    case other
-}
 
-enum MessageType {
-    case iMessage
-    case sms
-}
 
 struct MessagesRowView: View {
-    let sender: Sender
     let message: String
     let alignment: HorizontalAlignment
     let hasTail: Bool
@@ -39,24 +30,23 @@ struct MessagesRowView: View {
             textOnLeft == false ? nil : Spacer()
         }
         .padding(.top, 1)
-        .padding(.bottom, hasTail ? 4 : 1)
+        .padding(.bottom, hasTail ? 8 : 1)
         .padding(.leading, textOnLeft ? 0 : farPadding)
         .padding(.trailing, textOnLeft ? farPadding : 0)
     }
 }
 
 extension MessagesRowView {
-    init(sender: Sender, message: String, hasTail: Bool = true) {
-        self.sender = sender
-        self.message = message
+    init(message: Message, hasTail: Bool = true) {
+        self.message = message.text
         self.hasTail = hasTail
         self.farPadding = 89
         
-        switch sender {
-        case .me(let sms):
+        switch message.sender {
+        case .me:
             self.alignment = .trailing
             self.textColor = .white
-            self.backgroundColor = sms ? .green : .blue
+            self.backgroundColor = message.type == .sms ? .green : .blue
         case .other:
             self.alignment = .leading
             self.textColor = .black
@@ -67,6 +57,23 @@ extension MessagesRowView {
 
 struct MessagesRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MessagesRowView(sender: .me(sms: false), message: "Hi")
+        Group {
+            MessagesRowView(message: messageExamples.meSmall)
+                .previewLayout(.sizeThatFits)
+                .padding()
+            
+            MessagesRowView(message: messageExamples.otherMedium)
+                .previewLayout(.sizeThatFits)
+                .padding()
+            
+            MessagesRowView(message: messageExamples.meMedium, hasTail: false)
+                .previewLayout(.sizeThatFits)
+                .padding()
+            
+            MessagesRowView(message: messageExamples.meLarge)
+                .previewLayout(.sizeThatFits)
+                .padding()
+        }
+            
     }
 }
