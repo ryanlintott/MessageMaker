@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ConversationView: View {
-    var conversation: Conversation
+    let conversation: Conversation
     
     var body: some View {
         VStack(spacing: 0) {

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct BigEmojiView: View {
-    var emojiText: String
+    let emojiText: String
     
     var body: some View {
         Text(emojiText)

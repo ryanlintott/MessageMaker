@@ -21,9 +21,8 @@ struct ContentView: View {
                 }
         }
         .sheet(isPresented: $showingEditView) {
-            RawTextView(text: .constant("Hello"))
+            RawTextView(text: self.$conversation.rawText)
         }
-        
     }
 }
 

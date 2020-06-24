@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct MessageGroupView: View {
-    var messageGroup: MessageGroup
+    let messageGroup: MessageGroup
     
     var body: some View {
         VStack(spacing: 0) {
-            if messageGroup.dateHeader != nil {
-                DateHeaderView(dateHeader: messageGroup.dateHeader!)
+            if messageGroup.timeStampHeader != nil {
+                TimeStampView(timeStamp: messageGroup.timeStampHeader!)
             }
             
             MessagesView(messages: messageGroup.messages)

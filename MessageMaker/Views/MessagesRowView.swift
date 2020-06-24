@@ -8,71 +8,82 @@
 
 import SwiftUI
 
-struct MessagesRowView: View {
-    let message: String
+struct MessageStyle {
     let alignment: HorizontalAlignment
-    let hasTail: Bool
     let textColor: Color
     let backgroundColor: Color
-    let farPadding: CGFloat
-    var textOnLeft: Bool {
-        alignment == .leading
+}
+
+
+struct MessagesRowView: View {
+    let message: Message
+    let hasTail: Bool
+    
+    var messageStyle: MessageStyle {
+        switch message.sender {
+        case .me:
+            return MessageStyle(
+                alignment: .trailing,
+                textColor: .white,
+                backgroundColor: message.type == .sms ? .green : .blue
+            )
+        case .other:
+            return MessageStyle(
+                alignment: .leading,
+                textColor: .black,
+                backgroundColor: .init(red: 233/255, green: 233/255, blue: 234/255)
+            )
+        }
     }
+    let farPadding: CGFloat = 89
     
     var body: some View {
         HStack {
-            textOnLeft ? nil : Spacer()
+            messageStyle.alignment == .leading ? nil : Spacer()
             
-            if message.count < 6 && message.containsOnlyEmoji {
-                BigEmojiView(emojiText: message)
-            } else {
-                TextBubbleView(message: message, messageAlignment: alignment, textColor: textColor, backgroundColor: backgroundColor, hasTail: hasTail)
+            VStack(alignment: messageStyle.alignment) {
+                if message.isBigEmoji {
+                    BigEmojiView(emojiText: message.text)
+                } else {
+                    TextBubbleView(
+                        text: message.text,
+                        messageAlignment: messageStyle.alignment,
+                        textColor: messageStyle.textColor,
+                        backgroundColor: messageStyle.backgroundColor,
+                        hasTail: hasTail
+                    )
+                }
+                
+                if message.timeStamp != nil {
+                    TimeStampView(timeStamp: message.timeStamp!)
+                }
             }
 
-            textOnLeft == false ? nil : Spacer()
+            messageStyle.alignment == .trailing ? nil : Spacer()
         }
         .padding(.top, 1)
         .padding(.bottom, hasTail ? 8 : 1)
-        .padding(.leading, textOnLeft ? 0 : farPadding)
-        .padding(.trailing, textOnLeft ? farPadding : 0)
-    }
-}
-
-extension MessagesRowView {
-    init(message: Message, hasTail: Bool = true) {
-        self.message = message.text
-        self.hasTail = hasTail
-        self.farPadding = 89
-        
-        switch message.sender {
-        case .me:
-            self.alignment = .trailing
-            self.textColor = .white
-            self.backgroundColor = message.type == .sms ? .green : .blue
-        case .other:
-            self.alignment = .leading
-            self.textColor = .black
-            self.backgroundColor = .init(red: 233/255, green: 233/255, blue: 234/255)
-        }
+        .padding(.leading, messageStyle.alignment == .leading ? 0 : farPadding)
+        .padding(.trailing, messageStyle.alignment == .trailing ? 0 : farPadding)
     }
 }
 
 struct MessagesRowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MessagesRowView(message: Message.examples.meEmoji)
+            MessagesRowView(message: Message.examples.meEmoji, hasTail: true)
                 .previewLayout(.sizeThatFits)
                 .padding()
             
-            MessagesRowView(message: Message.examples.otherEmoji)
+            MessagesRowView(message: Message.examples.otherEmoji, hasTail: true)
                 .previewLayout(.sizeThatFits)
                 .padding()
                 
-            MessagesRowView(message: Message.examples.meSmall)
+            MessagesRowView(message: Message.examples.meSmall, hasTail: true)
                 .previewLayout(.sizeThatFits)
                 .padding()
             
-            MessagesRowView(message: Message.examples.otherMedium)
+            MessagesRowView(message: Message.examples.otherMedium, hasTail: true)
                 .previewLayout(.sizeThatFits)
                 .padding()
             
@@ -80,7 +91,7 @@ struct MessagesRowView_Previews: PreviewProvider {
                 .previewLayout(.sizeThatFits)
                 .padding()
             
-            MessagesRowView(message: Message.examples.meLarge)
+            MessagesRowView(message: Message.examples.meLarge, hasTail: true)
                 .previewLayout(.sizeThatFits)
                 .padding()
         }

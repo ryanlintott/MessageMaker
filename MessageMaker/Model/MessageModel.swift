@@ -32,6 +32,15 @@ struct Message: Identifiable {
     var sender: Sender
     var type: MessageType = .iMessage
     var text: String
+    var timeStamp: TimeStamp?
+    
+    mutating func addTimeStamp(_ timeStamp: TimeStamp) {
+        self.timeStamp = timeStamp
+    }
+    
+    var isBigEmoji: Bool {
+        text.count < 6 && text.containsOnlyEmoji
+    }
     
     static let examples = (
         meSmall: Message(id: UUID(), sender: .me, text: "Hi"),
@@ -45,15 +54,27 @@ struct Message: Identifiable {
     )
 }
 
+enum MessageGroupError: Error {
+    case noMessages
+}
+
 struct MessageGroup {
-    var dateHeader: DateHeader?
+    var timeStampHeader: TimeStamp?
     var messages = [Message]()
     
     var isEmpty: Bool {
-        messages.count == 0 && dateHeader == nil
+        messages.count == 0 && timeStampHeader == nil
     }
     
-    static let example = MessageGroup(dateHeader: DateHeader.example, messages: [
+    mutating func timeStampLastMessage(_ timeStamp: TimeStamp) throws {
+        if messages.count > 0 {
+            messages[messages.count - 1].addTimeStamp(timeStamp)
+        } else {
+            throw MessageGroupError.noMessages
+        }
+    }
+    
+    static let example = MessageGroup(timeStampHeader: TimeStamp.example, messages: [
         Message.examples.meLarge,
         Message.examples.otherMedium,
         Message.examples.meSmall,

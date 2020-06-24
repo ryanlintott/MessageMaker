@@ -72,14 +72,14 @@ extension View {
 }
 
 struct TextBubbleView: View {
-    let message: String
+    let text: String
     let messageAlignment: HorizontalAlignment
     let textColor: Color
     let backgroundColor: Color
     let hasTail: Bool
     
     var body: some View {
-        Text(message)
+        Text(text)
             .font(.system(size: 17, weight: .regular, design: .default))
             .multilineTextAlignment(.leading)
             .padding([.leading, .trailing], 12)
@@ -96,15 +96,15 @@ struct TextBubbleView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            TextBubbleView(message: "Hi", messageAlignment: .leading, textColor: .white, backgroundColor: .gray, hasTail: true)
+            TextBubbleView(text: "Hi", messageAlignment: .leading, textColor: .white, backgroundColor: .gray, hasTail: true)
                 .previewLayout(.sizeThatFits)
                 .padding()
             
-            TextBubbleView(message: "Medium message", messageAlignment: .trailing, textColor: .white, backgroundColor: .blue, hasTail: false)
+            TextBubbleView(text: "Medium message", messageAlignment: .trailing, textColor: .white, backgroundColor: .blue, hasTail: false)
             .previewLayout(.sizeThatFits)
             .padding()
             
-            TextBubbleView(message: testMessage, messageAlignment: .trailing, textColor: .white, backgroundColor: .blue, hasTail: true)
+            TextBubbleView(text: testMessage, messageAlignment: .trailing, textColor: .white, backgroundColor: .blue, hasTail: true)
                 .previewLayout(.sizeThatFits)
                 .padding()
         }

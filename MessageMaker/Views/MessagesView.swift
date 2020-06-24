@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MessagesView: View {
-    var messages: [Message]
+    let messages: [Message]
     
     var body: some View {
         VStack(spacing: 0) {
@@ -20,9 +20,11 @@ struct MessagesView: View {
         .padding(.horizontal, 20)
     }
     
-    func applyTail(toIndex index: Int) -> Bool {
-        if index + 1 < messages.count {
-            return messages[index].sender != messages[index + 1].sender
+    func applyTail(toIndex i: Int) -> Bool {
+        if i + 1 < messages.count {
+            if messages[i].sender == messages[i + 1].sender && messages[i].timeStamp == nil {
+                return false
+            }
         }
         return true
     }
