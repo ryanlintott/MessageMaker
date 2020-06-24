@@ -30,19 +30,36 @@ enum MessageType {
 struct Message: Identifiable {
     var id: UUID
     var sender: Sender
-    var senderName: String?
     var type: MessageType = .iMessage
-    var date: Date?
     var text: String
+    
+    static let examples = (
+        meSmall: Message(id: UUID(), sender: .me, text: "Hi"),
+        meMedium: Message(id: UUID(), sender: .me, text: "Hello, here is a longer message"),
+        meLarge: Message(id: UUID(), sender: .me, text: "Here is a really long string. There's a bunch of words in here!"),
+        meEmoji: Message(id: UUID(), sender: .me, text: "😄"),
+        otherSmall: Message(id: UUID(), sender: .other, text: "Hi"),
+        otherMedium: Message(id: UUID(), sender: .other, text: "Hello, here is a longer message"),
+        otherLarge: Message(id: UUID(), sender: .other, text: "Here is a really long string. There's a bunch of words in here!"),
+        otherEmoji: Message(id: UUID(), sender: .other, text: "😄☝️")
+    )
 }
 
-let messageExamples = (
-    meSmall: Message(id: UUID(), sender: .me, text: "Hi"),
-    meMedium: Message(id: UUID(), sender: .me, text: "Hello, here is a longer message"),
-    meLarge: Message(id: UUID(), sender: .me, text: "Here is a really long string. There's a bunch of words in here!"),
-    otherSmall: Message(id: UUID(), sender: .me, text: "Hi"),
-    otherMedium: Message(id: UUID(), sender: .other, text: "Hello, here is a longer message"),
-    otherLarge: Message(id: UUID(), sender: .other, text: "Here is a really long string. There's a bunch of words in here!")
-)
+struct MessageGroup {
+    var dateHeader: DateHeader?
+    var messages = [Message]()
+    
+    var isEmpty: Bool {
+        messages.count == 0 && dateHeader == nil
+    }
+    
+    static let example = MessageGroup(dateHeader: DateHeader.example, messages: [
+        Message.examples.meLarge,
+        Message.examples.otherMedium,
+        Message.examples.meSmall,
+        Message.examples.otherEmoji
+    ])
+}
+
 
 

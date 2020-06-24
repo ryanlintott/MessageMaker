@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-
-
 struct MessagesRowView: View {
     let message: String
     let alignment: HorizontalAlignment
@@ -25,7 +23,11 @@ struct MessagesRowView: View {
         HStack {
             textOnLeft ? nil : Spacer()
             
-            TextBubbleView(message: message, messageAlignment: alignment, textColor: textColor, backgroundColor: backgroundColor, hasTail: hasTail)
+            if message.count < 6 && message.containsOnlyEmoji {
+                BigEmojiView(emojiText: message)
+            } else {
+                TextBubbleView(message: message, messageAlignment: alignment, textColor: textColor, backgroundColor: backgroundColor, hasTail: hasTail)
+            }
 
             textOnLeft == false ? nil : Spacer()
         }
@@ -58,19 +60,27 @@ extension MessagesRowView {
 struct MessagesRowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MessagesRowView(message: messageExamples.meSmall)
+            MessagesRowView(message: Message.examples.meEmoji)
                 .previewLayout(.sizeThatFits)
                 .padding()
             
-            MessagesRowView(message: messageExamples.otherMedium)
+            MessagesRowView(message: Message.examples.otherEmoji)
+                .previewLayout(.sizeThatFits)
+                .padding()
+                
+            MessagesRowView(message: Message.examples.meSmall)
                 .previewLayout(.sizeThatFits)
                 .padding()
             
-            MessagesRowView(message: messageExamples.meMedium, hasTail: false)
+            MessagesRowView(message: Message.examples.otherMedium)
                 .previewLayout(.sizeThatFits)
                 .padding()
             
-            MessagesRowView(message: messageExamples.meLarge)
+            MessagesRowView(message: Message.examples.meMedium, hasTail: false)
+                .previewLayout(.sizeThatFits)
+                .padding()
+            
+            MessagesRowView(message: Message.examples.meLarge)
                 .previewLayout(.sizeThatFits)
                 .padding()
         }

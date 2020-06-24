@@ -9,8 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var conversation = Conversation.example
+    @State private var showingEditView = false
+    
     var body: some View {
-        ConversationView()
+        Group {
+            ConversationView(conversation: conversation)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    self.showingEditView.toggle()
+                }
+        }
+        .sheet(isPresented: $showingEditView) {
+            RawTextView(text: .constant("Hello"))
+        }
+        
     }
 }
 

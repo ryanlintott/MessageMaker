@@ -15,18 +15,20 @@ struct RawTextView: View {
     @State var draftText: String = ""
     
     var body: some View {
-        VStack {
-            MultilineTextView(text: $draftText)
-                .font(.headline)
-                .padding()
-        }
-        .navigationBarTitle("Raw Text")
-        .navigationBarItems(leading: Button("Cancel") {
-                self.cancel()
-            }, trailing: Button("Save") {
-                self.save()
+        NavigationView {
+            VStack {
+                MultilineTextView(text: $draftText)
+                    .font(.headline)
+                    .padding()
             }
-        )
+            .navigationBarTitle("Raw Text")
+            .navigationBarItems(leading: Button("Cancel") {
+                    self.cancel()
+                }, trailing: Button("Save") {
+                    self.save()
+                }
+            )
+        }
         .onAppear(perform: createDraft)
     }
     
@@ -46,21 +48,19 @@ struct RawTextView: View {
 
 struct RawTextView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            RawTextView(text: .constant("""
-                Here is a long string that will take up several lines.
-                one
-                two
-                three
+        RawTextView(text: .constant("""
+            Here is a long string that will take up several lines.
+            one
+            two
+            three
 
-                and even more
+            and even more
 
-                --- break ---
+            --- break ---
 
-                and more
-                """
-            ))
-        }
+            and more
+            """
+        ))
     }
 }
 

@@ -21,6 +21,12 @@
 		CF8D650924A2A0CC007D7C91 /* MultilineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8D650824A2A0CC007D7C91 /* MultilineTextView.swift */; };
 		CF8D650B24A2A3DF007D7C91 /* ConversationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8D650A24A2A3DF007D7C91 /* ConversationModel.swift */; };
 		CF8D650D24A2A777007D7C91 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8D650C24A2A777007D7C91 /* ConversationView.swift */; };
+		CF8D650F24A2BF3A007D7C91 /* String-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8D650E24A2BF3A007D7C91 /* String-Extensions.swift */; };
+		CF8D651124A2CBAB007D7C91 /* MessageGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8D651024A2CBAB007D7C91 /* MessageGroupView.swift */; };
+		CF8D651324A2CC5F007D7C91 /* DateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8D651224A2CC5F007D7C91 /* DateHeaderView.swift */; };
+		CF8D651524A2CCC7007D7C91 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8D651424A2CCC7007D7C91 /* MessagesView.swift */; };
+		CF8D651724A2D13C007D7C91 /* BigEmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8D651624A2D13C007D7C91 /* BigEmojiView.swift */; };
+		CF90FD3A24A2D86F00041C45 /* DateHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF90FD3924A2D86F00041C45 /* DateHeaderModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +46,12 @@
 		CF8D650824A2A0CC007D7C91 /* MultilineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextView.swift; sourceTree = "<group>"; };
 		CF8D650A24A2A3DF007D7C91 /* ConversationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationModel.swift; sourceTree = "<group>"; };
 		CF8D650C24A2A777007D7C91 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
+		CF8D650E24A2BF3A007D7C91 /* String-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extensions.swift"; sourceTree = "<group>"; };
+		CF8D651024A2CBAB007D7C91 /* MessageGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageGroupView.swift; sourceTree = "<group>"; };
+		CF8D651224A2CC5F007D7C91 /* DateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderView.swift; sourceTree = "<group>"; };
+		CF8D651424A2CCC7007D7C91 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		CF8D651624A2D13C007D7C91 /* BigEmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigEmojiView.swift; sourceTree = "<group>"; };
+		CF90FD3924A2D86F00041C45 /* DateHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,13 +87,11 @@
 			children = (
 				CF1408A8249526D400C9E200 /* AppDelegate.swift */,
 				CF1408AA249526D400C9E200 /* SceneDelegate.swift */,
-				CF1494D324A294EC009686D0 /* Model */,
+				CF8D650E24A2BF3A007D7C91 /* String-Extensions.swift */,
 				CF1408AC249526D400C9E200 /* ContentView.swift */,
-				CF8D650C24A2A777007D7C91 /* ConversationView.swift */,
-				CF8D650624A29E45007D7C91 /* RawTextView.swift */,
-				CF8D650824A2A0CC007D7C91 /* MultilineTextView.swift */,
-				CF1408BE249570FD00C9E200 /* MessagesRowView.swift */,
-				CF1408BC24955BC900C9E200 /* TextBubbleView.swift */,
+				CF1494D324A294EC009686D0 /* Model */,
+				CF90FD3824A2D63D00041C45 /* EditViews */,
+				CF8D651824A2D1D1007D7C91 /* Views */,
 				CF1408AE249526D800C9E200 /* Assets.xcassets */,
 				CF1408B3249526D800C9E200 /* LaunchScreen.storyboard */,
 				CF1408B6249526D800C9E200 /* Info.plist */,
@@ -102,9 +112,33 @@
 			isa = PBXGroup;
 			children = (
 				CF1494CF24A29214009686D0 /* MessageModel.swift */,
+				CF90FD3924A2D86F00041C45 /* DateHeaderModel.swift */,
 				CF8D650A24A2A3DF007D7C91 /* ConversationModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CF8D651824A2D1D1007D7C91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CF8D650C24A2A777007D7C91 /* ConversationView.swift */,
+				CF8D651224A2CC5F007D7C91 /* DateHeaderView.swift */,
+				CF8D651024A2CBAB007D7C91 /* MessageGroupView.swift */,
+				CF8D651424A2CCC7007D7C91 /* MessagesView.swift */,
+				CF1408BE249570FD00C9E200 /* MessagesRowView.swift */,
+				CF8D651624A2D13C007D7C91 /* BigEmojiView.swift */,
+				CF1408BC24955BC900C9E200 /* TextBubbleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CF90FD3824A2D63D00041C45 /* EditViews */ = {
+			isa = PBXGroup;
+			children = (
+				CF8D650624A29E45007D7C91 /* RawTextView.swift */,
+				CF8D650824A2A0CC007D7C91 /* MultilineTextView.swift */,
+			);
+			path = EditViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,12 +217,18 @@
 				CF1494D024A29214009686D0 /* MessageModel.swift in Sources */,
 				CF1408A9249526D400C9E200 /* AppDelegate.swift in Sources */,
 				CF1408AB249526D400C9E200 /* SceneDelegate.swift in Sources */,
+				CF8D651524A2CCC7007D7C91 /* MessagesView.swift in Sources */,
 				CF1408AD249526D400C9E200 /* ContentView.swift in Sources */,
 				CF8D650924A2A0CC007D7C91 /* MultilineTextView.swift in Sources */,
+				CF8D651124A2CBAB007D7C91 /* MessageGroupView.swift in Sources */,
+				CF90FD3A24A2D86F00041C45 /* DateHeaderModel.swift in Sources */,
 				CF1408BD24955BC900C9E200 /* TextBubbleView.swift in Sources */,
 				CF8D650B24A2A3DF007D7C91 /* ConversationModel.swift in Sources */,
+				CF8D651324A2CC5F007D7C91 /* DateHeaderView.swift in Sources */,
 				CF8D650724A29E45007D7C91 /* RawTextView.swift in Sources */,
 				CF8D650D24A2A777007D7C91 /* ConversationView.swift in Sources */,
+				CF8D650F24A2BF3A007D7C91 /* String-Extensions.swift in Sources */,
+				CF8D651724A2D13C007D7C91 /* BigEmojiView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
