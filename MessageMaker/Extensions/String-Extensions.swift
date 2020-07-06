@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Source: https://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
+// Based on source: https://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
 
 extension Character {
     /// A simple emoji is one scalar and presented to the user as an Emoji
@@ -24,11 +24,11 @@ extension Character {
 }
 
 extension String {
-    var isSingleEmoji: Bool { count == 1 && containsEmoji }
-
     var containsEmoji: Bool { contains { $0.isEmoji } }
 
     var containsOnlyEmoji: Bool { !isEmpty && !contains { !$0.isEmoji } }
+    
+    var isSingleEmoji: Bool { count == 1 && containsEmoji }
 
     var emojiString: String { emojis.map { String($0) }.reduce("", +) }
 

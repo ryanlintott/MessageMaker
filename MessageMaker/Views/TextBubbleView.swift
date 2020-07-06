@@ -61,7 +61,6 @@ struct MessageTailView: ViewModifier {
             self.rotationAngle = .degrees(0)
             self.axis = (x: 0, y: 0, z: 0)
         }
-        
     }
 }
 

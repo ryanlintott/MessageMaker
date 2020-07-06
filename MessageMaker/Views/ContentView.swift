@@ -13,12 +13,14 @@ struct ContentView: View {
     @State private var showingEditView = false
     
     var body: some View {
-        Group {
-            ConversationView(conversation: conversation)
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    self.showingEditView.toggle()
-                }
+        ScrollView {
+            Group {
+                ConversationView(conversation: conversation)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        self.showingEditView.toggle()
+                    }
+            }
         }
         .sheet(isPresented: $showingEditView) {
             RawTextView(text: self.$conversation.rawText)
