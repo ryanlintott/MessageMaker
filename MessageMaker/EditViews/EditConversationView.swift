@@ -15,20 +15,18 @@ struct EditConversationView: View {
     @State var draftText: String = ""
     
     var body: some View {
-        NavigationView {
-            VStack {
-                MultilineTextView(text: $draftText)
-                    .font(.headline)
-                    .padding()
-            }
-            .navigationBarTitle("Raw Text")
-            .navigationBarItems(leading: Button("Cancel") {
-                    self.cancel()
-                }, trailing: Button("Save") {
-                    self.save()
-                }
-            )
+        VStack {
+            MultilineTextView(text: $draftText)
+                .font(.headline)
+                .padding()
         }
+        .navigationBarTitle(conversation.name)
+        .navigationBarItems(leading: Button("Cancel") {
+                self.cancel()
+            }, trailing: Button("Save") {
+                self.save()
+            }
+        )
         .onAppear(perform: createDraft)
     }
     
@@ -44,6 +42,7 @@ struct EditConversationView: View {
         if let conversation = Conversation(rawValue: draftText) {
             self.conversation = conversation
         } else {
+            print("error saving conversation")
             // error saving conversation
         }
         presentationMode.wrappedValue.dismiss()
@@ -51,20 +50,18 @@ struct EditConversationView: View {
 }
 
 struct RawTextView_Previews: PreviewProvider {
+    struct PreviewData: View {
+        @State private var conversation = Conversation.example
+        
+        var body: some View {
+            EditConversationView(conversation: $conversation)
+        }
+    }
+        
     static var previews: some View {
-        EditConversationView(text: .constant("""
-            Here is a long string that will take up several lines.
-            one
-            two
-            three
-
-            and even more
-
-            --- break ---
-
-            and more
-            """
-        ))
+        NavigationView {
+            PreviewData()
+        }
     }
 }
 

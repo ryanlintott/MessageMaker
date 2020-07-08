@@ -56,4 +56,7 @@ extension String {
     }
 }
 
+extension String {
+    static let newLine = "\n"
+}
 

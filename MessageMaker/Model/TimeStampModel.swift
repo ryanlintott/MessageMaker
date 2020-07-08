@@ -8,20 +8,21 @@
 
 import Foundation
 
-struct TimeStamp {
+struct TimeStamp: Codable, RawRepresentable {
+    typealias RawValue = String
+    static var dateLine = "--"
+    static var separator: Character = "|"
+    
     var label: String?
     var time: String
     
-    init?(from text: String) {
-        let dateLine = "--"
+    init?(rawValue: RawValue) {
+        let dateLine = Self.dateLine
         
-        if text.hasPrefix(dateLine) && text.hasSuffix(dateLine) {
-            let dateLineSet = CharacterSet(charactersIn: "-")
-            let trimmedText = text
-                .trimmingCharacters(in: dateLineSet)
-                .trimmingCharacters(in: .whitespaces)
+        if rawValue.hasPrefix(dateLine) && rawValue.hasSuffix(dateLine) {
+            let trimmedText = rawValue.deletingPrefix(dateLine).deletingSuffix(dateLine)
             if trimmedText.count > 0 {
-                let components = trimmedText.split(separator: "|")
+                let components = trimmedText.split(separator: Self.separator)
                 
                 if components.count > 1 {
                     self.label = String(components[0])
@@ -35,11 +36,22 @@ struct TimeStamp {
         return nil
     }
     
+    var rawValue: RawValue {
+        var rawArray = [String]()
+        rawArray.append(Self.dateLine)
+        if let label = label {
+            rawArray.append(label + String(Self.separator))
+        }
+        rawArray.append(time)
+        rawArray.append(Self.dateLine)
+        return rawArray.joined()
+    }
+    
     init(label: String? = nil, time: String) {
         self.label = label
         self.time = time
     }
     
     static let example = TimeStamp(label: "Sat, May 24,", time: "11:09 AM")
-    static let exampleFromRawText = TimeStamp(from: "-- Sat, May 24,| 12:00 PM --")
+    static let exampleFromRawText = TimeStamp(rawValue: "-- Sat, May 24,| 12:00 PM --")
 }

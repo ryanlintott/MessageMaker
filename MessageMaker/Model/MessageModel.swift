@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Sender {
+enum Sender: String, Codable {
     case me
     case other
     
@@ -22,13 +22,15 @@ enum Sender {
     }
 }
 
-enum MessageType {
+enum MessageType: String, Codable {
     case iMessage
     case sms
 }
 
-struct Message: Identifiable {
-    var id: UUID
+struct Message: Identifiable, Codable {
+    typealias RawValue = String
+    
+    let id = UUID()
     var sender: Sender
     var type: MessageType = .iMessage
     var text: String
@@ -42,15 +44,24 @@ struct Message: Identifiable {
         text.count < 6 && text.containsOnlyEmoji
     }
     
+    var rawValue: RawValue {
+        var rawArray = [String]()
+        rawArray.append(text)
+        if let timeStamp = timeStamp {
+            rawArray.append(timeStamp.rawValue)
+        }
+        return rawArray.joined(separator: .newLine)
+    }
+    
     static let examples = (
-        meSmall: Message(id: UUID(), sender: .me, text: "Hi"),
-        meMedium: Message(id: UUID(), sender: .me, text: "Hello, here is a longer message"),
-        meLarge: Message(id: UUID(), sender: .me, text: "Here is a really long string. There's a bunch of words in here!"),
-        meEmoji: Message(id: UUID(), sender: .me, text: "😄"),
-        otherSmall: Message(id: UUID(), sender: .other, text: "Hi"),
-        otherMedium: Message(id: UUID(), sender: .other, text: "Hello, here is a longer message"),
-        otherLarge: Message(id: UUID(), sender: .other, text: "Here is a really long string. There's a bunch of words in here!"),
-        otherEmoji: Message(id: UUID(), sender: .other, text: "😄☝️")
+        meSmall: Message(sender: .me, text: "Hi"),
+        meMedium: Message(sender: .me, text: "Hello, here is a longer message"),
+        meLarge: Message(sender: .me, text: "Here is a really long string. There's a bunch of words in here!"),
+        meEmoji: Message(sender: .me, text: "😄"),
+        otherSmall: Message(sender: .other, text: "Hi"),
+        otherMedium: Message(sender: .other, text: "Hello, here is a longer message"),
+        otherLarge: Message(sender: .other, text: "Here is a really long string. There's a bunch of words in here!"),
+        otherEmoji: Message(sender: .other, text: "😄☝️")
     )
 }
 
@@ -58,7 +69,7 @@ enum MessageGroupError: Error {
     case noMessages
 }
 
-struct MessageGroup {
+struct MessageGroup: Codable {
     var timeStampHeader: TimeStamp?
     var messages = [Message]()
     
