@@ -29,6 +29,7 @@ struct MultilineTextView: UIViewRepresentable {
         let cursorLocation = textView.selectedRange.location
         textView.text = text
         textView.selectedRange = NSRange(location: cursorLocation, length: 0)
+        textView.scrollRangeToVisible(textView.selectedRange)
     }
 
     
@@ -59,10 +60,26 @@ struct MultilineTextView_Previews: PreviewProvider {
 
             and even more
 
+
+
+
+            asdfads
+
+
+
+            asdfads
+
+            asdfads
+
+
+
+            asdfds
+
             --- break ---
 
             and more
             """
-        ), fontSize: 20)
+            ), fontSize: 20)
+            .frame(height: 400)
     }
 }

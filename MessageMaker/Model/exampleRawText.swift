@@ -10,7 +10,7 @@ import Foundation
 
 let exampleRawText = """
 Example
---Tue, June 30,| 5:32 PM--
+< Tue, June 30,| 5:32 PM >
 I've finally finished 100 Days of SwiftUI!!!
 
 Awesome!
@@ -32,7 +32,7 @@ You're in it!
 
 let exampleRawTextLong = """
 Example
--- Tue, June 30,| 5:32 PM --
+< Tue, June 30,| 5:32 PM >
 I've finally finished 100 Days of SwiftUI!!!
 
 Awesome!
@@ -47,11 +47,11 @@ A friend some way to make text message bubbles from raw text so I said I could b
 Cool, can I see it?
 
 You're in it!
--- Read| 5:35 PM --
+< Read| 5:35 PM >
 
 😮
 
--- Tue, June 30,| 5:32 PM --
+< Tue, June 30,| 5:32 PM >
 I've finally finished 100 Days of SwiftUI!!!
 
 Awesome!
@@ -66,7 +66,7 @@ A friend some way to make text message bubbles from raw text so I said I could b
 Cool, can I see it?
 
 You're in it!
--- Read| 5:35 PM --
+< Read| 5:35 PM >
 
 😮
 """

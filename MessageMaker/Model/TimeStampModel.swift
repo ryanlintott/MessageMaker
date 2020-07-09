@@ -10,17 +10,16 @@ import Foundation
 
 struct TimeStamp: Codable, RawRepresentable {
     typealias RawValue = String
-    static var dateLine = "--"
+    static var timeStampPrefix = "< "
+    static var timeStampSuffix = " >"
     static var separator: Character = "|"
     
     var label: String?
     var time: String
     
     init?(rawValue: RawValue) {
-        let dateLine = Self.dateLine
-        
-        if rawValue.hasPrefix(dateLine) && rawValue.hasSuffix(dateLine) {
-            let trimmedText = rawValue.deletingPrefix(dateLine).deletingSuffix(dateLine)
+        if rawValue.hasPrefix(Self.timeStampPrefix) && rawValue.hasSuffix(Self.timeStampSuffix) {
+            let trimmedText = rawValue.deletingPrefix(Self.timeStampPrefix).deletingSuffix(Self.timeStampSuffix).trimmingCharacters(in: .whitespaces)
             if trimmedText.count > 0 {
                 let components = trimmedText.split(separator: Self.separator)
                 
@@ -38,12 +37,12 @@ struct TimeStamp: Codable, RawRepresentable {
     
     var rawValue: RawValue {
         var rawArray = [String]()
-        rawArray.append(Self.dateLine)
+        rawArray.append(Self.timeStampPrefix)
         if let label = label {
             rawArray.append(label + String(Self.separator))
         }
         rawArray.append(time)
-        rawArray.append(Self.dateLine)
+        rawArray.append(Self.timeStampSuffix)
         return rawArray.joined()
     }
     
