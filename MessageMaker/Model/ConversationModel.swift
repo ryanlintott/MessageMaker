@@ -73,7 +73,7 @@ struct Conversation: Codable, RawRepresentable, Identifiable {
             if let timeStamp = messageGroup.timeStampHeader {
                 rawMessageGroupArray.append(timeStamp.rawValue)
             } else {
-                rawMessageGroupArray.append("----")
+                rawMessageGroupArray.append(TimeStamp.timeStampPrefix + TimeStamp.timeStampSuffix)
             }
             
             var currentSender: Sender = .me
