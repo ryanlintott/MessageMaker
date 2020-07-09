@@ -46,11 +46,15 @@ struct TimeStamp: Codable, RawRepresentable {
         return rawArray.joined()
     }
     
-    init(label: String? = nil, time: String) {
+    init(label: String? = nil, time: String = "") {
         self.label = label
         self.time = time
     }
     
+    var isEmpty: Bool {
+        time.count == 0 && (label == nil || label?.count == 0)
+    }
+    
     static let example = TimeStamp(label: "Sat, May 24,", time: "11:09 AM")
-    static let exampleFromRawText = TimeStamp(rawValue: "-- Sat, May 24,| 12:00 PM --")
+    static let exampleFromRawText = TimeStamp(rawValue: "< Sat, May 24,| 12:00 PM >")
 }

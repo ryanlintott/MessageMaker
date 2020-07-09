@@ -10,17 +10,18 @@ import Foundation
 import SwiftUI
 
 struct Conversation: Codable, Identifiable {
-    let id = UUID()
+    let id: UUID
     var name: String
     var messageGroups: MessageGroups
     
-    init(name: String, messageGroups: MessageGroups = []) {
+    init(id: UUID = UUID(), name: String, messageGroups: MessageGroups = []) {
+        self.id = id
         self.name = name
         self.messageGroups = messageGroups
     }
     
-    static let example = Conversation(name: "Example", messageGroups: MessageGroups(rawValue: exampleRawText)!)
-    static let exampleLong = Conversation(name: "Long Example", messageGroups: MessageGroups(rawValue: exampleRawTextLong)!)
+    static let example = Conversation(name: "Example", messageGroups: .example)
+    static let exampleLong = Conversation(name: "Long Example", messageGroups: .exampleLong)
 }
 
 

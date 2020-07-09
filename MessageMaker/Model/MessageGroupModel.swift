@@ -12,12 +12,13 @@ enum MessageGroupError: Error {
     case noMessages
 }
 
-struct MessageGroup: Codable {
-    var timeStampHeader: TimeStamp?
+struct MessageGroup: Codable, Identifiable {
+    let id = UUID()
+    var timeStampHeader = TimeStamp(label: nil, time: "")
     var messages = [Message]()
     
     var isEmpty: Bool {
-        messages.count == 0 && timeStampHeader == nil
+        messages.count == 0 && timeStampHeader.isEmpty
     }
     
     mutating func timeStampLastMessage(_ timeStamp: TimeStamp) throws {
@@ -69,10 +70,7 @@ extension MessageGroups: RawRepresentable {
                     try? currentMessageGroup.timeStampLastMessage(timeStamp)
                 }
             } else {
-                let message = Message(
-                    sender: currentSender,
-                    text: line
-                )
+                let message = Message(sender: currentSender, text: line)
                 currentMessageGroup.messages.append(message)
             }
         }
@@ -86,12 +84,8 @@ extension MessageGroups: RawRepresentable {
         var rawArray = [String]()
         for messageGroup in self {
             var rawMessageGroupArray = [String]()
-            
-            if let timeStamp = messageGroup.timeStampHeader {
-                rawMessageGroupArray.append(timeStamp.rawValue)
-            } else {
-                rawMessageGroupArray.append(TimeStamp.timeStampPrefix + TimeStamp.timeStampSuffix)
-            }
+            let timeStamp = messageGroup.timeStampHeader
+            rawMessageGroupArray.append(timeStamp.isEmpty ? TimeStamp().rawValue : timeStamp.rawValue)
             
             var currentSender: Sender = .me
             for message in messageGroup.messages {
@@ -112,4 +106,7 @@ extension MessageGroups: RawRepresentable {
         let range = NSRange(location: 0, length: text.utf16.count)
         return Self.timeRegex.stringByReplacingMatches(in: text, options: [], range: range, withTemplate: "").trimmingCharacters(in: .whitespaces)
     }
+    
+    static let example = MessageGroups(rawValue: exampleRawText)!
+    static let exampleLong = MessageGroups(rawValue: exampleRawTextLong)!
 }

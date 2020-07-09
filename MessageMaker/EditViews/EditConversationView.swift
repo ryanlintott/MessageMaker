@@ -15,10 +15,6 @@ struct EditConversationView: View {
     @State private var draftName: String = ""
     @State private var draftText: String = ""
     
-    var firstMessage: String {
-        conversation.messageGroups.first?.messages.first?.text ?? "N/A"
-    }
-    
     var body: some View {
         VStack {
             HStack {

@@ -25,7 +25,26 @@ class ConversationData: ObservableObject {
         self.conversations = UserDefaults.standard.decode([Conversation].self, forKey: saveKey) ?? [.example]
     }
     
+    func add(_ conversation: Conversation) {
+        objectWillChange.send()
+        conversations.append(conversation)
+        save()
+    }
+    
+    func remove(at offsets: IndexSet) {
+        objectWillChange.send()
+        conversations.remove(atOffsets: offsets)
+        save()
+    }
+    
     func save() {
         UserDefaults.standard.encode(conversations, forKey: saveKey)
     }
+    
+    static let example = ConversationData(conversations: [
+        .example,
+        .exampleLong,
+        Conversation(name: "Another Conversation", messageGroups: .example),
+        Conversation(name: "Funny Stuff", messageGroups: .example)
+    ])
 }

@@ -13,9 +13,7 @@ struct MessageGroupView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            if messageGroup.timeStampHeader != nil {
-                TimeStampView(timeStamp: messageGroup.timeStampHeader!)
-            }
+            TimeStampView(timeStamp: messageGroup.timeStampHeader)
             
             MessagesView(messages: messageGroup.messages)
                 .padding(.top, 8)

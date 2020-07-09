@@ -9,12 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var conversationData = ConversationData()
-    
     var body: some View {
-        NavigationView {
-            ConversationsView(conversations: $conversationData.conversations)
-        }
+        ConversationsView(conversationData: ConversationData())
     }
 }
 

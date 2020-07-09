@@ -30,6 +30,7 @@
 		CF90FD3F24A313C700041C45 /* exampleRawText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF90FD3E24A313C700041C45 /* exampleRawText.swift */; };
 		CF9B31B724B77F5400A5B446 /* UserDefaults-extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9B31B624B77F5400A5B446 /* UserDefaults-extensions.swift */; };
 		CF9B31B924B791D200A5B446 /* MessageGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9B31B824B791D200A5B446 /* MessageGroupModel.swift */; };
+		CF9B31BD24B7A60F00A5B446 /* AddConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9B31BC24B7A60F00A5B446 /* AddConversationView.swift */; };
 		CFC3320D24B62BD800E22156 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC3320C24B62BD800E22156 /* DataModel.swift */; };
 		CFC3320F24B62DA400E22156 /* ConversationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC3320E24B62DA400E22156 /* ConversationsView.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		CF90FD3E24A313C700041C45 /* exampleRawText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exampleRawText.swift; sourceTree = "<group>"; };
 		CF9B31B624B77F5400A5B446 /* UserDefaults-extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults-extensions.swift"; sourceTree = "<group>"; };
 		CF9B31B824B791D200A5B446 /* MessageGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageGroupModel.swift; sourceTree = "<group>"; };
+		CF9B31BC24B7A60F00A5B446 /* AddConversationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddConversationView.swift; sourceTree = "<group>"; };
 		CFC3320C24B62BD800E22156 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		CFC3320E24B62DA400E22156 /* ConversationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +150,7 @@
 		CF90FD3824A2D63D00041C45 /* EditViews */ = {
 			isa = PBXGroup;
 			children = (
+				CF9B31BC24B7A60F00A5B446 /* AddConversationView.swift */,
 				CF8D650624A29E45007D7C91 /* EditConversationView.swift */,
 				CF8D650824A2A0CC007D7C91 /* MultilineTextView.swift */,
 			);
@@ -248,6 +251,7 @@
 				CF90FD3A24A2D86F00041C45 /* TimeStampModel.swift in Sources */,
 				CF1408BD24955BC900C9E200 /* TextBubbleView.swift in Sources */,
 				CF8D650B24A2A3DF007D7C91 /* ConversationModel.swift in Sources */,
+				CF9B31BD24B7A60F00A5B446 /* AddConversationView.swift in Sources */,
 				CF8D651324A2CC5F007D7C91 /* TimeStampView.swift in Sources */,
 				CF8D650724A29E45007D7C91 /* EditConversationView.swift in Sources */,
 				CFC3320D24B62BD800E22156 /* DataModel.swift in Sources */,

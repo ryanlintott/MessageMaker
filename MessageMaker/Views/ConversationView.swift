@@ -15,7 +15,7 @@ struct ConversationView: View {
     var body: some View {
         ScrollView(.vertical) {
             VStack(spacing: 0) {
-                ForEach(0..<conversation.messageGroups.count) { i in
+                ForEach(0..<conversation.messageGroups.count, id: \.self) { i in
                     MessageGroupView(messageGroup: self.conversation.messageGroups[i])
                 }
                 

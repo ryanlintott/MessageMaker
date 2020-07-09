@@ -9,23 +9,33 @@
 import SwiftUI
 
 struct ConversationsView: View {
-    @Binding var conversations: [Conversation]
+    @ObservedObject var conversationData: ConversationData
+    @State private var showingAddConversationView = false
     
     var body: some View {
-        List {
-            ForEach(0..<conversations.count) { i in
-                NavigationLink(destination: ConversationView(conversation: self.$conversations[i])) {
-                    Text(self.conversations[i].name)
-                }
+        NavigationView {
+            List {
+                ForEach(0..<conversationData.conversations.count, id: \.self) { i in
+                    NavigationLink(destination: ConversationView(conversation: self.$conversationData.conversations[i])) {
+                        Text(self.conversationData.conversations[i].name)
+                    }
 
+                }
+                .onDelete(perform: conversationData.remove)
+            }
+            .navigationBarTitle("Conversations")
+            .navigationBarItems(leading: EditButton(), trailing: Button("Add") {
+                self.showingAddConversationView = true
+            })
+            .sheet(isPresented: $showingAddConversationView) {
+                AddConversationView(conversationData: self.conversationData)
             }
         }
-        .navigationBarTitle("Conversations")
     }
 }
 
 struct ConversationsView_Previews: PreviewProvider {
     static var previews: some View {
-        ConversationsView(conversations: .constant([.example]))
+        ConversationsView(conversationData: .example)
     }
 }
