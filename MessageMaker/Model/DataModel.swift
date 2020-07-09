@@ -9,9 +9,23 @@
 import Foundation
 
 class ConversationData: ObservableObject {
-    @Published var conversations: [Conversation]
+    @Published var conversations: [Conversation] {
+        didSet {
+            save()
+        }
+    }
+    
+    private let saveKey = "Conversations"
     
     init(conversations: [Conversation]) {
         self.conversations = conversations
+    }
+    
+    init() {
+        self.conversations = UserDefaults.standard.decode([Conversation].self, forKey: saveKey) ?? [.example]
+    }
+    
+    func save() {
+        UserDefaults.standard.encode(conversations, forKey: saveKey)
     }
 }

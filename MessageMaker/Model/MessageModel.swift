@@ -65,33 +65,5 @@ struct Message: Identifiable, Codable {
     )
 }
 
-enum MessageGroupError: Error {
-    case noMessages
-}
-
-struct MessageGroup: Codable {
-    var timeStampHeader: TimeStamp?
-    var messages = [Message]()
-    
-    var isEmpty: Bool {
-        messages.count == 0 && timeStampHeader == nil
-    }
-    
-    mutating func timeStampLastMessage(_ timeStamp: TimeStamp) throws {
-        if messages.count > 0 {
-            messages[messages.count - 1].addTimeStamp(timeStamp)
-        } else {
-            throw MessageGroupError.noMessages
-        }
-    }
-    
-    static let example = MessageGroup(timeStampHeader: TimeStamp.example, messages: [
-        Message.examples.meLarge,
-        Message.examples.otherMedium,
-        Message.examples.meSmall,
-        Message.examples.otherEmoji
-    ])
-}
-
 
 

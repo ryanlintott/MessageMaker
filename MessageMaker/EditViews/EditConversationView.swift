@@ -12,7 +12,8 @@ struct EditConversationView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var conversation: Conversation
-    @State var draftText: String = ""
+    @State private var draftName: String = ""
+    @State private var draftText: String = ""
     
     var firstMessage: String {
         conversation.messageGroups.first?.messages.first?.text ?? "N/A"
@@ -20,12 +21,18 @@ struct EditConversationView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Text("Name:")
+                TextField("Name", text: $draftName)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+            
             MultilineTextView(text: $draftText, fontSize: 16)
                 .padding(4)
                 .border(Color.secondary, width: 1)
-                .padding()
         }
-        .navigationBarTitle(conversation.name)
+        .padding()
+        .navigationBarTitle("Edit Conversation")
         .navigationBarItems(leading: Button("Cancel") {
                 self.cancel()
             }, trailing: Button("Save") {
@@ -36,7 +43,8 @@ struct EditConversationView: View {
     }
     
     func createDraft() {
-        draftText = conversation.rawValue
+        draftName = conversation.name
+        draftText = conversation.messageGroups.rawValue
     }
     
     func cancel() {
@@ -44,8 +52,9 @@ struct EditConversationView: View {
     }
     
     func save() {
-        if let conversation = Conversation(rawValue: draftText) {
-            self.conversation = conversation
+        if let messageGroups = MessageGroups(rawValue: draftText) {
+            conversation.name = draftName
+            conversation.messageGroups = messageGroups
         } else {
             print("error saving conversation")
             // error saving conversation

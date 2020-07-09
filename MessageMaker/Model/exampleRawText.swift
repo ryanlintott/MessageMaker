@@ -9,7 +9,6 @@
 import Foundation
 
 let exampleRawText = """
-Example
 < Tue, June 30,| 5:32 PM >
 I've finally finished 100 Days of SwiftUI!!!
 
@@ -31,7 +30,6 @@ You're in it!
 """
 
 let exampleRawTextLong = """
-Example
 < Tue, June 30,| 5:32 PM >
 I've finally finished 100 Days of SwiftUI!!!
 

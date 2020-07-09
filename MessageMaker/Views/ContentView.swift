@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var conversationData = ConversationData(conversations: [Conversation(rawValue: exampleRawText)!])
+    @ObservedObject var conversationData = ConversationData()
     
     var body: some View {
         NavigationView {

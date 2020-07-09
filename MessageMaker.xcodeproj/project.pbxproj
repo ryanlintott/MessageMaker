@@ -28,6 +28,8 @@
 		CF90FD3A24A2D86F00041C45 /* TimeStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF90FD3924A2D86F00041C45 /* TimeStampModel.swift */; };
 		CF90FD3C24A2FCE100041C45 /* Array-extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF90FD3B24A2FCE100041C45 /* Array-extensions.swift */; };
 		CF90FD3F24A313C700041C45 /* exampleRawText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF90FD3E24A313C700041C45 /* exampleRawText.swift */; };
+		CF9B31B724B77F5400A5B446 /* UserDefaults-extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9B31B624B77F5400A5B446 /* UserDefaults-extensions.swift */; };
+		CF9B31B924B791D200A5B446 /* MessageGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9B31B824B791D200A5B446 /* MessageGroupModel.swift */; };
 		CFC3320D24B62BD800E22156 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC3320C24B62BD800E22156 /* DataModel.swift */; };
 		CFC3320F24B62DA400E22156 /* ConversationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC3320E24B62DA400E22156 /* ConversationsView.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,8 @@
 		CF90FD3924A2D86F00041C45 /* TimeStampModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampModel.swift; sourceTree = "<group>"; };
 		CF90FD3B24A2FCE100041C45 /* Array-extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array-extensions.swift"; sourceTree = "<group>"; };
 		CF90FD3E24A313C700041C45 /* exampleRawText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exampleRawText.swift; sourceTree = "<group>"; };
+		CF9B31B624B77F5400A5B446 /* UserDefaults-extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults-extensions.swift"; sourceTree = "<group>"; };
+		CF9B31B824B791D200A5B446 /* MessageGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageGroupModel.swift; sourceTree = "<group>"; };
 		CFC3320C24B62BD800E22156 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		CFC3320E24B62DA400E22156 /* ConversationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,8 +119,9 @@
 		CF1494D324A294EC009686D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CF1494CF24A29214009686D0 /* MessageModel.swift */,
 				CF90FD3924A2D86F00041C45 /* TimeStampModel.swift */,
+				CF1494CF24A29214009686D0 /* MessageModel.swift */,
+				CF9B31B824B791D200A5B446 /* MessageGroupModel.swift */,
 				CF8D650A24A2A3DF007D7C91 /* ConversationModel.swift */,
 				CFC3320C24B62BD800E22156 /* DataModel.swift */,
 				CF90FD3E24A313C700041C45 /* exampleRawText.swift */,
@@ -152,6 +157,7 @@
 		CF90FD3D24A2FCEF00041C45 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CF9B31B624B77F5400A5B446 /* UserDefaults-extensions.swift */,
 				CF8D650E24A2BF3A007D7C91 /* String-Extensions.swift */,
 				CF90FD3B24A2FCE100041C45 /* Array-extensions.swift */,
 			);
@@ -246,6 +252,8 @@
 				CF8D650724A29E45007D7C91 /* EditConversationView.swift in Sources */,
 				CFC3320D24B62BD800E22156 /* DataModel.swift in Sources */,
 				CF90FD3C24A2FCE100041C45 /* Array-extensions.swift in Sources */,
+				CF9B31B924B791D200A5B446 /* MessageGroupModel.swift in Sources */,
+				CF9B31B724B77F5400A5B446 /* UserDefaults-extensions.swift in Sources */,
 				CF8D650D24A2A777007D7C91 /* ConversationView.swift in Sources */,
 				CF8D650F24A2BF3A007D7C91 /* String-Extensions.swift in Sources */,
 				CF8D651724A2D13C007D7C91 /* BigEmojiView.swift in Sources */,
