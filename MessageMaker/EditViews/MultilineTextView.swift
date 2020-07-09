@@ -11,17 +11,39 @@ import Combine
 
 struct MultilineTextView: UIViewRepresentable {
     @Binding var text: String
+    var fontSize: CGFloat
 
     func makeUIView(context: Context) -> UITextView {
-        let view = UITextView()
-        view.isScrollEnabled = true
-        view.isEditable = true
-        view.isUserInteractionEnabled = true
-        return view
+        let textView = UITextView()
+        textView.font = .systemFont(ofSize: fontSize)
+        textView.isScrollEnabled = true
+        textView.isEditable = true
+        textView.isUserInteractionEnabled = true
+        textView.autocapitalizationType = .none
+        textView.adjustsFontForContentSizeCategory = true
+        textView.delegate = context.coordinator
+        return textView
     }
 
-    func updateUIView(_ uiView: UITextView, context: Context) {
-        uiView.text = text
+    func updateUIView(_ textView: UITextView, context: Context) {
+        textView.text = text
+    }
+
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    class Coordinator: NSObject, UITextViewDelegate {
+        var parent: MultilineTextView
+        
+        init(_ parent: MultilineTextView) {
+            self.parent = parent
+        }
+        
+        func textViewDidChange(_ textView: UITextView) {
+            parent.text = textView.text
+        }
     }
 }
 
@@ -39,6 +61,6 @@ struct MultilineTextView_Previews: PreviewProvider {
 
             and more
             """
-        ))
+        ), fontSize: 20)
     }
 }

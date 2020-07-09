@@ -13,7 +13,7 @@ struct MessagesView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(0..<messages.count) { i in
+            ForEach(0..<messages.count, id:\.self) { i in
                 MessagesRowView(message: self.messages[i], hasTail: self.applyTail(toIndex: i))
             }
         }

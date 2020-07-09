@@ -14,10 +14,15 @@ struct EditConversationView: View {
     @Binding var conversation: Conversation
     @State var draftText: String = ""
     
+    var firstMessage: String {
+        conversation.messageGroups.first?.messages.first?.text ?? "N/A"
+    }
+    
     var body: some View {
         VStack {
-            MultilineTextView(text: $draftText)
-                .font(.headline)
+            MultilineTextView(text: $draftText, fontSize: 16)
+                .padding(4)
+                .border(Color.secondary, width: 1)
                 .padding()
         }
         .navigationBarTitle(conversation.name)
