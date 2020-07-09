@@ -26,7 +26,9 @@ struct MultilineTextView: UIViewRepresentable {
     }
 
     func updateUIView(_ textView: UITextView, context: Context) {
+        let cursorLocation = textView.selectedRange.location
         textView.text = text
+        textView.selectedRange = NSRange(location: cursorLocation, length: 0)
     }
 
     
