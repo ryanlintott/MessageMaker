@@ -7,7 +7,7 @@ A friend of mine was writing fanfic and wanted a way to generate a lot of text m
 - Each line of text counts as one message
 - First message is from "you"
 - Leaving a blank line changes the sender
-- Adding a line with "--" on both sides will create bold timestamp text
-- Text to the right of "|" in a timestamp will not be bold
-- Timestamp text as a first line or after a blank line will appear in the middle as a date stamp.
-- Timestamp text directly after a message will appear under that message as a read stamp.
+- Adding a line surrounded by "< " and " >" will create timestamp text
+- Text to the left of "|" in a timestamp will be bold
+- Timestamp text as a first line or after a blank line will appear in the middle (useful for date stamps).
+- Timestamp text directly after a message will appear under that message (useful for "read" or "delivered" timestamps).
