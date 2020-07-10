@@ -36,7 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CF1408A5249526D400C9E200 /* MessageMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF1408A5249526D400C9E200 /* Bubble Babble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bubble Babble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF1408A8249526D400C9E200 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF1408AA249526D400C9E200 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CF1408AC249526D400C9E200 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		CF1408A6249526D400C9E200 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CF1408A5249526D400C9E200 /* MessageMaker.app */,
+				CF1408A5249526D400C9E200 /* Bubble Babble.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 			);
 			name = MessageMaker;
 			productName = MessageMaker;
-			productReference = CF1408A5249526D400C9E200 /* MessageMaker.app */;
+			productReference = CF1408A5249526D400C9E200 /* Bubble Babble.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -406,7 +406,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.abetterwaytodo.MessageMaker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bubble Babble";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -426,7 +426,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.abetterwaytodo.MessageMaker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bubble Babble";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
