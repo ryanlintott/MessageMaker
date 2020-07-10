@@ -24,7 +24,7 @@ A friend some way to make text message bubbles from raw text so I said I could b
 Cool, can I see it?
 
 You're in it!
---Read| 5:35 PM--
+< Read| 5:35 PM >
 
 😮
 """

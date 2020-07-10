@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 struct Conversation: Codable, Identifiable {
     let id: UUID
