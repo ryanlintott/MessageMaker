@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CF1408A4249526D400C9E200"
-               BuildableName = "MessageMaker.app"
+               BuildableName = "Bubble Babble.app"
                BlueprintName = "MessageMaker"
                ReferencedContainer = "container:MessageMaker.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CF1408A4249526D400C9E200"
-            BuildableName = "MessageMaker.app"
+            BuildableName = "Bubble Babble.app"
             BlueprintName = "MessageMaker"
             ReferencedContainer = "container:MessageMaker.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CF1408A4249526D400C9E200"
-            BuildableName = "MessageMaker.app"
+            BuildableName = "Bubble Babble.app"
             BlueprintName = "MessageMaker"
             ReferencedContainer = "container:MessageMaker.xcodeproj">
          </BuildableReference>
