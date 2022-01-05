@@ -19,7 +19,7 @@ Awesome!
 So are you going to make some apps now?
 
 Yup
-A friend some way to make text message bubbles from raw text so I said I could build it in SwiftUI.
+A friend wanted some way to make text message bubbles from raw text so I said I could build it in SwiftUI.
 
 Cool, can I see it?
 
@@ -40,7 +40,7 @@ Awesome!
 So are you going to make some apps now?
 
 Yup
-A friend some way to make text message bubbles from raw text so I said I could build it in SwiftUI.
+A friend wanted some way to make text message bubbles from raw text so I said I could build it in SwiftUI.
 
 Cool, can I see it?
 
@@ -59,7 +59,7 @@ Awesome!
 So are you going to make some apps now?
 
 Yup
-A friend some way to make text message bubbles from raw text so I said I could build it in SwiftUI.
+A friend wanted some way to make text message bubbles from raw text so I said I could build it in SwiftUI.
 
 Cool, can I see it?
 
