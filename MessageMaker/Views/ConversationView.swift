@@ -75,5 +75,6 @@ struct ConversationView_Previews: PreviewProvider {
                 ConversationView(conversation: .constant(.exampleLong))
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }

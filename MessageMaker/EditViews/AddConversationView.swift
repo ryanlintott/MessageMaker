@@ -36,6 +36,7 @@ struct AddConversationView: View {
                 }
             )
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     func cancel() {

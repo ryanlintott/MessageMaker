@@ -31,6 +31,7 @@ struct ConversationsView: View {
                 AddConversationView(conversationData: self.conversationData)
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
