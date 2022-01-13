@@ -13,7 +13,7 @@ enum MessageGroupError: Error {
 }
 
 struct MessageGroup: Codable, Identifiable {
-    let id = UUID()
+	private(set) var id = UUID()
     var timeStampHeader = TimeStamp(label: nil, time: "")
     var messages = [Message]()
     
