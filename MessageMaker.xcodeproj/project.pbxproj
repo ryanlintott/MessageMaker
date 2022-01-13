@@ -101,6 +101,7 @@
 				CF1408A6249526D400C9E200 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		CF1408A6249526D400C9E200 /* Products */ = {
 			isa = PBXGroup;
