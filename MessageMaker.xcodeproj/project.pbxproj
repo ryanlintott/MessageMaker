@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D88477D27860FBD003344EE /* DEVELOPMENT_TEAM.template.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D88477A27860FBD003344EE /* DEVELOPMENT_TEAM.template.xcconfig */; };
+		3D88477E27860FBD003344EE /* DEVELOPMENT_TEAM.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D88477B27860FBD003344EE /* DEVELOPMENT_TEAM.xcconfig */; };
+		3D88477F27860FBD003344EE /* Shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D88477C27860FBD003344EE /* Shared.xcconfig */; };
 		CF1408A9249526D400C9E200 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1408A8249526D400C9E200 /* AppDelegate.swift */; };
 		CF1408AB249526D400C9E200 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1408AA249526D400C9E200 /* SceneDelegate.swift */; };
 		CF1408AD249526D400C9E200 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1408AC249526D400C9E200 /* ContentView.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D88477A27860FBD003344EE /* DEVELOPMENT_TEAM.template.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DEVELOPMENT_TEAM.template.xcconfig; sourceTree = "<group>"; };
+		3D88477B27860FBD003344EE /* DEVELOPMENT_TEAM.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DEVELOPMENT_TEAM.xcconfig; sourceTree = "<group>"; };
+		3D88477C27860FBD003344EE /* Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
 		CF1408A5249526D400C9E200 /* Bubble Babble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bubble Babble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF1408A8249526D400C9E200 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF1408AA249526D400C9E200 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,13 +83,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D88477927860FBD003344EE /* Xcode-config */ = {
+			isa = PBXGroup;
+			children = (
+				3D88477A27860FBD003344EE /* DEVELOPMENT_TEAM.template.xcconfig */,
+				3D88477B27860FBD003344EE /* DEVELOPMENT_TEAM.xcconfig */,
+				3D88477C27860FBD003344EE /* Shared.xcconfig */,
+			);
+			path = "Xcode-config";
+			sourceTree = "<group>";
+		};
 		CF14089C249526D400C9E200 = {
 			isa = PBXGroup;
 			children = (
+				3D88477927860FBD003344EE /* Xcode-config */,
 				CF1408A7249526D400C9E200 /* MessageMaker */,
 				CF1408A6249526D400C9E200 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		CF1408A6249526D400C9E200 /* Products */ = {
 			isa = PBXGroup;
@@ -194,7 +212,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "A Better Way To Do";
 				TargetAttributes = {
 					CF1408A4249526D400C9E200 = {
@@ -225,9 +243,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D88477E27860FBD003344EE /* DEVELOPMENT_TEAM.xcconfig in Resources */,
+				3D88477D27860FBD003344EE /* DEVELOPMENT_TEAM.template.xcconfig in Resources */,
 				CF1408B5249526D800C9E200 /* LaunchScreen.storyboard in Resources */,
 				CF1408B2249526D800C9E200 /* Preview Assets.xcassets in Resources */,
 				CF1408AF249526D800C9E200 /* Assets.xcassets in Resources */,
+				3D88477F27860FBD003344EE /* Shared.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +301,7 @@
 /* Begin XCBuildConfiguration section */
 		CF1408B7249526D800C9E200 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D88477C27860FBD003344EE /* Shared.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -304,6 +326,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -340,6 +363,7 @@
 		};
 		CF1408B8249526D800C9E200 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D88477C27860FBD003344EE /* Shared.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -364,6 +388,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -398,7 +423,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MessageMaker/Preview Content\"";
-				DEVELOPMENT_TEAM = 97423JQ8B9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MessageMaker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -418,7 +442,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MessageMaker/Preview Content\"";
-				DEVELOPMENT_TEAM = 97423JQ8B9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MessageMaker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

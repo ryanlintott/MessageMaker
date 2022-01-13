@@ -72,6 +72,7 @@ struct RawTextView_Previews: PreviewProvider {
         NavigationView {
             PreviewData()
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

@@ -30,7 +30,7 @@ enum MessageType: String, Codable {
 struct Message: Identifiable, Codable {
     typealias RawValue = String
     
-    let id = UUID()
+	private(set) var id = UUID()
     var sender: Sender
     var type: MessageType = .iMessage
     var text: String
